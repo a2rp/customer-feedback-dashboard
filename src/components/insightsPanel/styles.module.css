@@ -7,9 +7,9 @@
     .panel-heading { position: relative; padding-left: 39px; }
     .panel-icon { position: absolute; top: 0; left: 0; width: 29px; height: 29px; display: grid; place-items: center; border-radius: 8px; background: var(--violet-soft); color: var(--violet); }
     .panel-icon svg { width: 14px; height: 14px; }
-    .kicker { color: var(--violet); font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+    .kicker { color: var(--violet); font-size: 12px; font-weight: 800; letter-spacing: .12em; }
     h2 { margin-top: 4px; font-family: Georgia, "Times New Roman", serif; font-size: 23px; }
-    .panel-heading p { margin-top: 3px; color: var(--muted); font-size: 12px; }
+    .panel-heading p { margin-top: 3px; color: var(--muted); font-size: 14px; }
     .sentiment-list { display: grid; gap: 5px; margin-top: 17px; }
     .sentiment-list button { min-height: 52px; display: flex; align-items: center; gap: 9px; padding: 7px; border: 1px solid transparent; border-radius: 8px; background: #fbfafc; text-align: left; transition: border-color 150ms ease, box-shadow 150ms ease; }
     .sentiment-list button:hover { border-color: var(--line); box-shadow: 0 3px 10px rgba(48, 41, 73, .07); }
@@ -18,17 +18,17 @@
     .sentimentIcon.neutral { background: var(--amber-soft); color: var(--amber); }
     .sentimentIcon.negative { background: var(--coral-soft); color: var(--coral); }
     .sentimentCopy { flex: 1; display: grid; gap: 1px; }
-    .sentimentCopy strong { color: var(--ink); font-size: 12px; }
-    .sentimentCopy small { color: var(--muted); font-size: 10px; }
+    .sentimentCopy strong { color: var(--ink); font-size: 14px; }
+    .sentimentCopy small { color: var(--muted); font-size: 12px; }
     .sentimentValue { display: grid; justify-items: end; color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 19px; }
-    .sentimentValue small { color: var(--muted); font-family: Inter, "Segoe UI", Arial, sans-serif; font-size: 10px; }
+    .sentimentValue small { color: var(--muted); font-family: Inter, "Segoe UI", Arial, sans-serif; font-size: 12px; }
     .category-block { margin-top: 18px; padding-top: 13px; border-top: 1px solid #f0eef3; }
     .category-heading { display: flex; justify-content: space-between; color: #716d80; }
-    .category-heading h3 { font-size: 12px; font-weight: 700; }
+    .category-heading h3 { font-size: 14px; font-weight: 700; }
     .category-heading svg { width: 12px; height: 12px; }
-    .category { display: grid; grid-template-columns: minmax(0, 1fr) 72px 12px; align-items: center; gap: 8px; margin-top: 11px; color: #777487; font-size: 10px; }
+    .category { display: grid; grid-template-columns: minmax(0, 1fr) 72px 12px; align-items: center; gap: 8px; margin-top: 11px; color: #777487; font-size: 12px; }
     .category-track { height: 5px; overflow: hidden; border-radius: 8px; background: #f0eef3; }
     .category-track i { display: block; height: 100%; border-radius: inherit; background: #a59ad1; }
-    .category strong { color: #5a5669; font-size: 10px; text-align: right; }
-    .no-topics { margin-top: 12px; color: var(--muted); font-size: 12px; }
+    .category strong { color: #5a5669; font-size: 12px; text-align: right; }
+    .no-topics { margin-top: 12px; color: var(--muted); font-size: 14px; }
 }
