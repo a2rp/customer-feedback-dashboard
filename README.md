@@ -1,16 +1,51 @@
-# React + Vite
+![Project screenshot](./screenshot.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# murmur. - Customer Feedback Dashboard
 
-Currently, two official plugins are available:
+murmur. brings customer feedback into one calm workspace. Review individual responses, see how sentiment is shifting, and identify the follow-up that needs attention.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live dashboard:** [https://a2rp.github.io/customer-feedback-dashboard/](https://a2rp.github.io/customer-feedback-dashboard/)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Review an inbox of customer comments, ratings, sources, topics, and follow-up status.
+- Search responses and filter by reply status or sentiment.
+- Track response volume, average rating, positive sentiment, and replies due.
+- Browse a recent response trend and the topics customers mention most.
+- Add feedback, open a response, mark it reviewed, or flag it for a reply.
+- Export the currently filtered responses as a CSV file.
+- Keep new feedback and status changes in browser storage.
+- Use the responsive layout on desktop, tablet, and mobile screens.
 
-## Expanding the Oxlint configuration
+## Run locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```sh
+npm install
+npm run dev
+```
+
+## Checks and deployment
+
+```sh
+npm run lint
+npm run build
+npm run deploy
+```
+
+`npm run deploy` builds the app and publishes the `dist` folder to the `gh-pages` branch. The live site is hosted at [https://a2rp.github.io/customer-feedback-dashboard/](https://a2rp.github.io/customer-feedback-dashboard/).
+
+## Links
+
+- Portfolio: [https://www.ashishranjan.net](https://www.ashishranjan.net)
+- GitHub: [https://github.com/a2rp](https://github.com/a2rp)
+- CodePen: [https://codepen.io/ash1198](https://codepen.io/ash1198)
+- LinkedIn: [https://www.linkedin.com/in/aashishranjan](https://www.linkedin.com/in/aashishranjan)
+- Facebook: [https://www.facebook.com/theash.ashish/](https://www.facebook.com/theash.ashish/)
+- YouTube: [https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1](https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1)
+- Email: [mailto:ash.ranjan09@gmail.com](mailto:ash.ranjan09@gmail.com)
+
+## Support
+
+- Support: [https://a2rp-donation-page.netlify.app/](https://a2rp-donation-page.netlify.app/)
+- Buy Me a Coffee: [https://buymeacoffee.com/ashishranjan](https://buymeacoffee.com/ashishranjan)
+- Patreon: [https://www.patreon.com/ashishranjan](https://www.patreon.com/ashishranjan)

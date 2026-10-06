@@ -1,0 +1,25 @@
+.backdrop { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; overflow-y: auto; padding: 24px; background: rgba(38, 34, 53, .42); backdrop-filter: blur(4px); }
+.modal { width: min(540px, 100%); padding: 23px; border: 1px solid rgba(255,255,255,.6); border-radius: 14px; background: white; box-shadow: 0 20px 70px rgba(38, 34, 53, .24);
+    .modal-heading { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 19px; }
+    .kicker { color: var(--violet); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+    h2 { margin-top: 4px; color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 23px; }
+    .modal-heading button { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--muted); }
+    .modal-heading button svg { width: 15px; height: 15px; }
+    form { display: grid; gap: 13px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label, legend { color: #686478; font-size: 9px; font-weight: 700; }
+    input, select, textarea { width: 100%; margin-top: 5px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 7px; outline: 0; background: #fcfbfd; color: var(--ink); font-size: 10px; }
+    input:focus, select:focus, textarea:focus { border-color: #a69ccf; box-shadow: 0 0 0 3px rgba(98, 87, 164, .1); }
+    fieldset { min-width: 0; border: 0; }
+    legend { margin-bottom: 6px; }
+    .rating-picker { height: 34px; display: flex; align-items: center; gap: 7px; }
+    .rating-picker button { padding: 3px; border: 0; background: transparent; color: #dcd9e3; }
+    .rating-picker svg { width: 18px; height: 18px; }
+    .rating-picker .star-selected { fill: #e6b95d; color: #e6b95d; }
+    .comment-field textarea { min-height: 92px; line-height: 1.5; }
+    .form-actions { display: flex; justify-content: flex-end; gap: 8px; padding-top: 3px; }
+    .form-actions button { min-height: 35px; padding: 0 13px; border: 1px solid var(--line); border-radius: 7px; background: white; color: #696679; font-size: 9px; font-weight: 700; }
+    .form-actions .save { border-color: var(--violet-deep); background: var(--violet-deep); color: white; }
+    .form-actions button:hover { box-shadow: 0 3px 9px rgba(48, 41, 73, .1); }
+    @media (max-width: 480px) { padding: 18px; .field-row { grid-template-columns: 1fr; gap: 10px; } }
+}
