@@ -1,5 +1,3 @@
-![Project screenshot](./screenshot.png)
-
 # murmur. - Customer Feedback Dashboard
 
 murmur. brings customer feedback into one calm workspace. Review individual responses, see how sentiment is shifting, and identify the follow-up that needs attention.
