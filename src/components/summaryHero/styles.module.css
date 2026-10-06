@@ -12,7 +12,7 @@
             gap: 7px;
             margin-bottom: 13px;
             color: var(--violet);
-            font-size: 8px;
+            font-size: 10px;
             font-weight: 800;
             letter-spacing: 0.15em;
 
@@ -39,7 +39,7 @@
         p {
             margin-top: 11px;
             color: var(--muted);
-            font-size: 12px;
+            font-size: 14px;
         }
     }
 
@@ -72,14 +72,14 @@
                 outline: 0;
                 background: transparent;
                 color: inherit;
-                font-size: 9px;
+                font-size: 12px;
                 cursor: pointer;
             }
 
             > span:not(.visually-hidden) {
                 margin-left: auto;
                 pointer-events: none;
-                font-size: 15px;
+                font-size: 17px;
                 line-height: 1;
             }
 
@@ -101,7 +101,7 @@
             border-radius: 7px;
             background: white;
             color: #656174;
-            font-size: 9px;
+            font-size: 12px;
             font-weight: 700;
             white-space: nowrap;
             transition:

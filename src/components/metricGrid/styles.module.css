@@ -17,7 +17,7 @@
             align-items: center;
             gap: 8px;
             color: #888497;
-            font-size: 8px;
+            font-size: 10px;
             font-weight: 750;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -45,7 +45,7 @@
             strong {
                 color: var(--ink);
                 font-family: Georgia, "Times New Roman", serif;
-                font-size: 25px;
+                font-size: 27px;
                 font-weight: 400;
                 letter-spacing: -0.8px;
                 line-height: 1;
@@ -53,7 +53,7 @@
 
             small {
                 color: var(--muted);
-                font-size: 8px;
+                font-size: 10px;
             }
         }
 
@@ -116,18 +116,18 @@
 
             .metric-topline {
                 gap: 5px;
-                font-size: 7px;
+                font-size: 10px;
             }
 
             .metric-value-row {
                 gap: 4px;
 
                 strong {
-                    font-size: 22px;
+                    font-size: 24px;
                 }
 
                 small {
-                    font-size: 7px;
+                    font-size: 10px;
                 }
             }
         }
