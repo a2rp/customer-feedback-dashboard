@@ -36,7 +36,8 @@ const App = () => {
         if (period === "all") return feedback;
         const limit = Number(period) * 24 * 60 * 60 * 1000;
         return feedback.filter(
-            (item) => currentTime - new Date(item.receivedAt).getTime() <= limit,
+            (item) =>
+                currentTime - new Date(item.receivedAt).getTime() <= limit,
         );
     }, [feedback, period, currentTime]);
 
@@ -88,9 +89,13 @@ const App = () => {
 
     const updateStatus = (id, status) => {
         setFeedback((current) =>
-            current.map((item) => (item.id === id ? { ...item, status } : item)),
+            current.map((item) =>
+                item.id === id ? { ...item, status } : item,
+            ),
         );
-        setToast(status === "Reviewed" ? "Marked as reviewed" : "Flagged for reply");
+        setToast(
+            status === "Reviewed" ? "Marked as reviewed" : "Flagged for reply",
+        );
     };
 
     const exportFeedback = () => {
