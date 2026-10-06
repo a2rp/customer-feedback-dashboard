@@ -1,4 +1,4 @@
-import { FiDownload, FiPlus, FiZap } from "react-icons/fi";
+import { FiChevronDown, FiDownload, FiPlus, FiZap } from "react-icons/fi";
 import styles from "./styles.module.css";
 
 const SummaryHero = ({ period, onPeriodChange, onAddFeedback, onExport }) => (
@@ -24,7 +24,10 @@ const SummaryHero = ({ period, onPeriodChange, onAddFeedback, onExport }) => (
                     <option value="90">Last 90 days</option>
                     <option value="all">All time</option>
                 </select>
-                <span aria-hidden="true">⌄</span>
+                <FiChevronDown
+                    className={styles["period-chevron"]}
+                    aria-hidden="true"
+                />
             </label>
             <button className={styles["export-button"]} type="button" onClick={onExport}>
                 <FiDownload aria-hidden="true" /> Export
