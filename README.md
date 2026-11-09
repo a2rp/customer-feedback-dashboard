@@ -17,6 +17,10 @@ murmur. brings customer feedback into one calm workspace. Review individual resp
 - Keep new feedback and status changes in browser storage.
 - Use the responsive layout on desktop, tablet, and mobile screens.
 
+## Data and privacy
+
+The dashboard starts with sample feedback. New entries and status changes are saved in this browser's local storage; there is no account or backend service. Clearing this browser's site data resets the dashboard to its sample responses. CSV export includes the currently visible, filtered responses.
+
 ## Run locally
 
 ```sh

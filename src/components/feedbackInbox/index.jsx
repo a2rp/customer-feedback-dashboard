@@ -10,17 +10,17 @@ const filters = [
     { id: "negative", label: "Negative" },
 ];
 
-const FeedbackInbox = ({ feedback, totalCount, activeFilter, onFilterChange, onOpenFeedback, onAddFeedback }) => (
+const FeedbackInbox = ({ feedback, totalCount, activeFilter, onFilterChange, onClearFilters, onOpenFeedback, onAddFeedback }) => (
     <section className={styles.inbox} id="responses" aria-labelledby="inbox-title">
         <div className={styles["inbox-heading"]}>
             <div>
                 <span className={styles.kicker}><FiMessageSquare aria-hidden="true" /> CUSTOMER VOICE</span>
-                <h2 id="inbox-title">The response inbox <span>{totalCount} responses</span></h2>
+                <h2 id="inbox-title" tabIndex="-1">The response inbox <span>{totalCount} responses</span></h2>
             </div>
             <button className={styles["mobile-add"]} type="button" onClick={onAddFeedback} aria-label="Add feedback"><FiPlus /></button>
         </div>
         <div className={styles["inbox-toolbar"]}>
-            <div className={styles.filters} aria-label="Filter responses">
+            <div className={styles.filters} role="group" aria-label="Filter responses">
                 {filters.map((filter) => (
                     <button key={filter.id} type="button" className={activeFilter === filter.id ? styles.active : ""} aria-pressed={activeFilter === filter.id} onClick={() => onFilterChange(filter.id)}>
                         {filter.id === "all" && <FiFilter aria-hidden="true" />}{filter.label}
@@ -46,7 +46,7 @@ const FeedbackInbox = ({ feedback, totalCount, activeFilter, onFilterChange, onO
                         </span>
                     </span>
                     <span className={styles["feedback-side"]}>
-                        <span className={styles.rating} aria-label={`${item.rating} out of 5 stars`}>
+                        <span className={styles.rating} role="img" aria-label={`${item.rating} out of 5 stars`}>
                             {Array.from({ length: 5 }, (_, index) => <FiStar key={index} className={index < item.rating ? styles.filled : ""} aria-hidden="true" />)}
                         </span>
                         <time>{formatReceivedDate(item.receivedAt)}</time>
@@ -54,7 +54,7 @@ const FeedbackInbox = ({ feedback, totalCount, activeFilter, onFilterChange, onO
                     </span>
                 </button>
             ))}
-            {feedback.length === 0 && <div className={styles.empty}><FiSearch aria-hidden="true" /><strong>No responses found</strong><span>Try another search or filter to see more customer voices.</span><button type="button" onClick={() => onFilterChange("all")}>Clear filters</button></div>}
+            {feedback.length === 0 && <div className={styles.empty}><FiSearch aria-hidden="true" /><strong>No responses found</strong><span>Try another search or filter to see more customer voices.</span><button type="button" onClick={onClearFilters}>Clear search and filters</button></div>}
         </div>
     </section>
 );

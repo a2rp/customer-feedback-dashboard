@@ -9,8 +9,19 @@ import FeedbackModal from "./components/feedbackModal/index.jsx";
 import FeedbackDetail from "./components/feedbackDetail/index.jsx";
 import Toast from "./components/toast/index.jsx";
 import Footer from "./components/footer/index.jsx";
-import { readFeedback } from "./utils/feedbackStorage.js";
+import { readFeedback, writeFeedback } from "./utils/feedbackStorage.js";
 import styles from "./App.module.css";
+
+const createFeedbackId = () =>
+    `feedback-${globalThis.crypto?.randomUUID?.() || `${Date.now().toString(36)}-${Math.random().toString(16).slice(2)}`}`;
+
+const escapeCsvCell = (value) => {
+    const text = String(value ?? "");
+    const safeText = /^[=+\-@]/.test(text.trimStart())
+        ? `'${text}`
+        : text;
+    return `"${safeText.replaceAll('"', '""')}"`;
+};
 
 const App = () => {
     const [feedback, setFeedback] = useState(readFeedback);
@@ -21,10 +32,6 @@ const App = () => {
     const [createOpen, setCreateOpen] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
     const [toast, setToast] = useState("");
-
-    useEffect(() => {
-        localStorage.setItem("murmur-feedback", JSON.stringify(feedback));
-    }, [feedback]);
 
     useEffect(() => {
         if (!toast) return undefined;
@@ -72,30 +79,42 @@ const App = () => {
         (item) => item.status === "Needs reply",
     ).length;
 
+    const saveFeedback = (nextFeedback, successMessage) => {
+        setFeedback(nextFeedback);
+        setToast(
+            writeFeedback(nextFeedback)
+                ? successMessage
+                : "Change saved for this session; browser storage is unavailable",
+        );
+    };
+
     const addFeedback = (newFeedback) => {
         const item = {
             ...newFeedback,
-            id: `feedback-${Date.now().toString(36)}`,
+            id: createFeedbackId(),
             receivedAt: new Date().toISOString(),
             status: newFeedback.rating <= 2 ? "Needs reply" : "New",
         };
-        setFeedback((current) => [item, ...current]);
+        saveFeedback([item, ...feedback], "Feedback added to the inbox");
         setCreateOpen(false);
-        setToast("Feedback added to the inbox");
         setPeriod("30");
         setActiveFilter("all");
         setSearch("");
     };
 
     const updateStatus = (id, status) => {
-        setFeedback((current) =>
-            current.map((item) =>
+        saveFeedback(
+            feedback.map((item) =>
                 item.id === id ? { ...item, status } : item,
             ),
-        );
-        setToast(
             status === "Reviewed" ? "Marked as reviewed" : "Flagged for reply",
         );
+    };
+
+    const clearFilters = () => {
+        setPeriod("all");
+        setActiveFilter("all");
+        setSearch("");
     };
 
     const exportFeedback = () => {
@@ -117,13 +136,11 @@ const App = () => {
         ];
         const csv = rows
             .map((row) =>
-                row
-                    .map((value) => `"${String(value).replaceAll('"', '""')}"`)
-                    .join(","),
+                row.map(escapeCsvCell).join(","),
             )
-            .join("\n");
+            .join("\r\n");
         const url = URL.createObjectURL(
-            new Blob([csv], { type: "text/csv;charset=utf-8" }),
+            new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8" }),
         );
         const link = document.createElement("a");
         link.href = url;
@@ -158,6 +175,7 @@ const App = () => {
                         totalCount={periodFeedback.length}
                         activeFilter={activeFilter}
                         onFilterChange={setActiveFilter}
+                        onClearFilters={clearFilters}
                         onOpenFeedback={setSelectedId}
                         onAddFeedback={() => setCreateOpen(true)}
                     />

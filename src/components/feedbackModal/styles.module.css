@@ -17,6 +17,7 @@
     .rating-picker svg { width: 18px; height: 18px; }
     .rating-picker .star-selected { fill: #e6b95d; color: #e6b95d; }
     .comment-field textarea { min-height: 92px; line-height: 1.5; }
+    .form-error { margin: 0; color: #a33b35; font-size: 13px; }
     .form-actions { display: flex; justify-content: flex-end; gap: 8px; padding-top: 3px; }
     .form-actions button { min-height: 35px; padding: 0 13px; border: 1px solid var(--line); border-radius: 7px; background: white; color: #696679; font-size: 14px; font-weight: 700; }
     .form-actions .save { border-color: var(--violet-deep); background: var(--violet-deep); color: white; }

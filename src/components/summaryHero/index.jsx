@@ -7,7 +7,7 @@ const SummaryHero = ({ period, onPeriodChange, onAddFeedback, onExport }) => (
             <div className={styles["hero-eyebrow"]}>
                 <FiZap aria-hidden="true" /> CUSTOMER VOICE / OVERVIEW
             </div>
-            <h1 id="dashboard-title">
+            <h1 id="dashboard-title" tabIndex="-1">
                 Listen closely.
                 <br />
                 <em>Move with purpose.</em>
