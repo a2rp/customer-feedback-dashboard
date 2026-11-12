@@ -25,7 +25,7 @@ const escapeCsvCell = (value) => {
 
 const App = () => {
     const [feedback, setFeedback] = useState(readFeedback);
-    const [currentTime] = useState(() => Date.now());
+    const [currentTime, setCurrentTime] = useState(() => Date.now());
     const [period, setPeriod] = useState("30");
     const [activeFilter, setActiveFilter] = useState("all");
     const [search, setSearch] = useState("");
@@ -39,13 +39,21 @@ const App = () => {
         return () => window.clearTimeout(timeout);
     }, [toast]);
 
+    useEffect(() => {
+        const interval = window.setInterval(
+            () => setCurrentTime(Date.now()),
+            60_000,
+        );
+        return () => window.clearInterval(interval);
+    }, []);
+
     const periodFeedback = useMemo(() => {
         if (period === "all") return feedback;
         const limit = Number(period) * 24 * 60 * 60 * 1000;
-        return feedback.filter(
-            (item) =>
-                currentTime - new Date(item.receivedAt).getTime() <= limit,
-        );
+        return feedback.filter((item) => {
+            const age = currentTime - new Date(item.receivedAt).getTime();
+            return age >= 0 && age <= limit;
+        });
     }, [feedback, period, currentTime]);
 
     const visibleFeedback = useMemo(() => {
@@ -186,7 +194,10 @@ const App = () => {
                 </div>
 
                 <div id="insights">
-                    <TrendPanel feedback={periodFeedback} />
+                    <TrendPanel
+                        feedback={periodFeedback}
+                        currentTime={currentTime}
+                    />
                 </div>
                 <Footer />
             </main>

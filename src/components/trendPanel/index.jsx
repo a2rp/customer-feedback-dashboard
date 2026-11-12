@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { FiArrowUpRight, FiBarChart2 } from "react-icons/fi";
 import styles from "./styles.module.css";
 
-const TrendPanel = ({ feedback }) => {
-    const [today] = useState(() => new Date());
+const TrendPanel = ({ feedback, currentTime }) => {
+    const today = new Date(currentTime);
     const days = Array.from({ length: 7 }, (_, index) => {
         const date = new Date(today);
         date.setDate(date.getDate() - (6 - index));
